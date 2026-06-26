@@ -127,3 +127,11 @@ AI Analytics is isolated as a future module for failing-student prediction, atte
 ## 12. Timetable Management
 
 Timetable Management depends on Academic Management for sessions, programs, classes, sections, subject allocations, and teacher assignments. It manages classrooms/labs, time slots, working days, academic calendar events, versioned section timetables, and entries. Validation prevents teacher, classroom, and section clashes; blocks holiday scheduling; enforces teacher assignment and workload; and preserves published timetable history through versioning.
+
+## Examination Management
+
+Examination Management extends the academic and timetable bounded contexts with tenant-scoped exam types, exams, assessment components, halls, schedules, invigilators, publish/lock workflows, and conflict validation before marks entry.
+
+## Marks Entry
+
+Marks Entry consumes locked/published examinations and assessment components to capture tenant-scoped student marks in draft batches. It supports bulk entry, imports, submission, locking, administrator unlock with reason capture, moderation/rechecking notes, and audit trails for every marks change.

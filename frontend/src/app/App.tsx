@@ -1,5 +1,8 @@
 import { AcademicPage } from '../features/academic/AcademicPage';
 import { AdmissionsPage } from '../features/admissions/AdmissionsPage';
+import { AttendancePage } from '../features/attendance/AttendancePage';
+import { ExaminationPage } from '../features/examinations/ExaminationPage';
+import { MarksEntryPage } from '../features/marks-entry/MarksEntryPage';
 import { StudentPage } from '../features/students/StudentPage';
 import { TimetablePage } from '../features/timetable/TimetablePage';
 
@@ -11,6 +14,9 @@ export function App() {
       <AcademicPage />
       <AdmissionsPage />
       <TimetablePage />
+      <AttendancePage />
+      <ExaminationPage />
+      <MarksEntryPage />
       <StudentPage />
     </main>
   );
