@@ -6,5 +6,6 @@ The backend exposes a versioned REST API under `/api/v1`. OpenAPI documentation 
 ## Modules
 
 - [Academic Management](ACADEMIC.md)
+- [Timetable Management](TIMETABLE.md)
 - [Admissions](ADMISSIONS.md)
 - [Students](STUDENTS.md)

@@ -122,3 +122,8 @@ Documents are stored locally by category during initial development. Backup jobs
 ## 11. Future AI Module
 
 AI Analytics is isolated as a future module for failing-student prediction, attendance shortage prediction, fee default risk, report comments, dashboards, chatbot support, OCR admission forms, and face-recognition attendance.
+
+
+## 12. Timetable Management
+
+Timetable Management depends on Academic Management for sessions, programs, classes, sections, subject allocations, and teacher assignments. It manages classrooms/labs, time slots, working days, academic calendar events, versioned section timetables, and entries. Validation prevents teacher, classroom, and section clashes; blocks holiday scheduling; enforces teacher assignment and workload; and preserves published timetable history through versioning.
