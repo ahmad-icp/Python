@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.env
+.venv/
+node_modules/
+dist/
+build/
+storage/backups/*.zip
+storage/documents/*
+!storage/documents/.gitkeep
