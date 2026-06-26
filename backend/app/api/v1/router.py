@@ -2,6 +2,8 @@ from fastapi import APIRouter
 
 from app.modules.academic.router import router as academic_router
 from app.modules.attendance.router import router as attendance_router
+from app.modules.examination.router import router as examination_router
+from app.modules.marks_entry.router import router as marks_entry_router
 from app.modules.admissions.router import router as admissions_router
 from app.modules.authentication.router import router as authentication_router
 from app.modules.settings.router import router as settings_router
@@ -16,6 +18,8 @@ api_router.include_router(settings_router, prefix="/settings", tags=["Settings"]
 api_router.include_router(students_router, prefix="/students", tags=["Student Information System"])
 api_router.include_router(timetable_router, prefix="/timetable", tags=["Timetable Management"])
 api_router.include_router(attendance_router, prefix="/attendance", tags=["Attendance Management"])
+api_router.include_router(examination_router, prefix="/examinations", tags=["Examination Management"])
+api_router.include_router(marks_entry_router, prefix="/marks-entry", tags=["Marks Entry"])
 
 
 @api_router.get("/health", tags=["Health"])

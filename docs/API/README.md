@@ -11,3 +11,5 @@ The backend exposes a versioned REST API under `/api/v1`. OpenAPI documentation 
 - [Students](STUDENTS.md)
 
 - [Attendance Management](ATTENDANCE.md)
+- [Examination Management](EXAMINATION.md)
+- [Marks Entry](MARKS_ENTRY.md)

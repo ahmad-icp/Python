@@ -27,6 +27,16 @@ class Permission(StrEnum):
     ATTENDANCE_WRITE = "attendance:write"
     ATTENDANCE_MARK = "attendance:mark"
     ATTENDANCE_FINALIZE = "attendance:finalize"
+    EXAM_READ = "exam:read"
+    EXAM_WRITE = "exam:write"
+    EXAM_CONFIGURE = "exam:configure"
+    EXAM_SCHEDULE = "exam:schedule"
+    EXAM_PUBLISH = "exam:publish"
+    EXAM_LOCK = "exam:lock"
+    MARKS_READ = "marks:read"
+    MARKS_WRITE = "marks:write"
+    MARKS_SUBMIT = "marks:submit"
+    MARKS_LOCK = "marks:lock"
 
 
 ROLE_PERMISSIONS: dict[str, set[Permission]] = {
@@ -46,10 +56,12 @@ ROLE_PERMISSIONS: dict[str, set[Permission]] = {
         Permission.ACADEMIC_READ,
         Permission.TIMETABLE_READ,
         Permission.ATTENDANCE_READ,
+        Permission.EXAM_READ,
+        Permission.MARKS_READ,
     },
-    "teacher": {Permission.STUDENT_READ, Permission.ACADEMIC_READ, Permission.TIMETABLE_READ, Permission.ATTENDANCE_READ, Permission.ATTENDANCE_MARK},
-    "parent": {Permission.STUDENT_READ, Permission.ACADEMIC_READ, Permission.TIMETABLE_READ, Permission.ATTENDANCE_READ},
-    "student": {Permission.STUDENT_READ, Permission.ACADEMIC_READ, Permission.TIMETABLE_READ, Permission.ATTENDANCE_READ},
+    "teacher": {Permission.STUDENT_READ, Permission.ACADEMIC_READ, Permission.TIMETABLE_READ, Permission.ATTENDANCE_READ, Permission.ATTENDANCE_MARK, Permission.EXAM_READ, Permission.MARKS_READ, Permission.MARKS_WRITE, Permission.MARKS_SUBMIT},
+    "parent": {Permission.STUDENT_READ, Permission.ACADEMIC_READ, Permission.TIMETABLE_READ, Permission.ATTENDANCE_READ, Permission.EXAM_READ, Permission.MARKS_READ},
+    "student": {Permission.STUDENT_READ, Permission.ACADEMIC_READ, Permission.TIMETABLE_READ, Permission.ATTENDANCE_READ, Permission.EXAM_READ, Permission.MARKS_READ},
 }
 
 
