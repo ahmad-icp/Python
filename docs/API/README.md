@@ -9,3 +9,5 @@ The backend exposes a versioned REST API under `/api/v1`. OpenAPI documentation 
 - [Timetable Management](TIMETABLE.md)
 - [Admissions](ADMISSIONS.md)
 - [Students](STUDENTS.md)
+
+- [Attendance Management](ATTENDANCE.md)

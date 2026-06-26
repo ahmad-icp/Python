@@ -23,6 +23,10 @@ class Permission(StrEnum):
     TIMETABLE_WRITE = "timetable:write"
     TIMETABLE_PUBLISH = "timetable:publish"
     TIMETABLE_DELETE = "timetable:delete"
+    ATTENDANCE_READ = "attendance:read"
+    ATTENDANCE_WRITE = "attendance:write"
+    ATTENDANCE_MARK = "attendance:mark"
+    ATTENDANCE_FINALIZE = "attendance:finalize"
 
 
 ROLE_PERMISSIONS: dict[str, set[Permission]] = {
@@ -41,10 +45,11 @@ ROLE_PERMISSIONS: dict[str, set[Permission]] = {
         Permission.MERIT_LIST_MANAGE,
         Permission.ACADEMIC_READ,
         Permission.TIMETABLE_READ,
+        Permission.ATTENDANCE_READ,
     },
-    "teacher": {Permission.STUDENT_READ, Permission.ACADEMIC_READ, Permission.TIMETABLE_READ},
-    "parent": {Permission.STUDENT_READ, Permission.ACADEMIC_READ, Permission.TIMETABLE_READ},
-    "student": {Permission.STUDENT_READ, Permission.ACADEMIC_READ, Permission.TIMETABLE_READ},
+    "teacher": {Permission.STUDENT_READ, Permission.ACADEMIC_READ, Permission.TIMETABLE_READ, Permission.ATTENDANCE_READ, Permission.ATTENDANCE_MARK},
+    "parent": {Permission.STUDENT_READ, Permission.ACADEMIC_READ, Permission.TIMETABLE_READ, Permission.ATTENDANCE_READ},
+    "student": {Permission.STUDENT_READ, Permission.ACADEMIC_READ, Permission.TIMETABLE_READ, Permission.ATTENDANCE_READ},
 }
 
 
