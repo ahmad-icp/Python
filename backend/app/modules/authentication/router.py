@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel
 
 router = APIRouter()
 
@@ -7,7 +7,7 @@ router = APIRouter()
 class LoginRequest(BaseModel):
     """Credentials accepted by the authentication module."""
 
-    username: EmailStr | str
+    username: str
     password: str
 
 
