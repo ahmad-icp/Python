@@ -9,8 +9,8 @@ from app.modules.admissions.models import (
     AdmissionApplication,
     AdmissionDocument,
     AdmissionStatus,
-    MeritList,
-    MeritListEntry,
+    AdmissionMeritList,
+    AdmissionMeritListEntry,
     MeritListStatus,
 )
 from app.modules.admissions.schemas import (
@@ -156,7 +156,7 @@ class AdmissionService:
         self.db.refresh(application)
         return application
 
-    def create_merit_list(self, payload: MeritListCreate, created_by: str) -> MeritList:
+    def create_merit_list(self, payload: MeritListCreate, created_by: str) -> AdmissionMeritList:
         minimum_score = payload.minimum_score if payload.minimum_score is not None else 0
         eligible_query = (
             select(AdmissionApplication)
@@ -174,7 +174,7 @@ class AdmissionService:
         applications = list(self.db.scalars(eligible_query).unique().all())
         if not applications:
             raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="No eligible applications found for merit list")
-        merit_list = MeritList(
+        merit_list = AdmissionMeritList(
             college_id=self.college_id,
             title=payload.title,
             program=payload.program,
@@ -184,7 +184,7 @@ class AdmissionService:
             created_by=created_by,
         )
         merit_list.entries = [
-            MeritListEntry(
+            AdmissionMeritListEntry(
                 application_id=application.id,
                 position=index,
                 score=float(application.merit_score or 0),
@@ -199,7 +199,7 @@ class AdmissionService:
         self.db.refresh(merit_list)
         return merit_list
 
-    def publish_merit_list(self, merit_list_id: str) -> MeritList:
+    def publish_merit_list(self, merit_list_id: str) -> AdmissionMeritList:
         merit_list = self._get_merit_list(merit_list_id)
         if merit_list.status == MeritListStatus.LOCKED:
             raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="Locked merit lists cannot be republished")
@@ -254,8 +254,8 @@ class AdmissionService:
         self.db.refresh(student)
         return student
 
-    def _get_merit_list(self, merit_list_id: str) -> MeritList:
-        merit_list = self.db.get(MeritList, merit_list_id)
+    def _get_merit_list(self, merit_list_id: str) -> AdmissionMeritList:
+        merit_list = self.db.get(AdmissionMeritList, merit_list_id)
         if not merit_list or merit_list.college_id != self.college_id:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Merit list not found")
         return merit_list

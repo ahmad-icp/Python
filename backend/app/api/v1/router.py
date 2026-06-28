@@ -7,6 +7,7 @@ from app.modules.examination.router import router as examination_router
 from app.modules.fees.router import router as fees_router
 from app.modules.marks_entry.router import router as marks_entry_router
 from app.modules.notifications.router import router as notifications_router
+from app.modules.platform.router import router as platform_router
 from app.modules.results.router import router as results_router
 from app.modules.reporting.router import router as reporting_router
 from app.modules.results.gpa_router import router as gpa_router
@@ -46,6 +47,7 @@ api_router.include_router(teacher_portal_router, prefix="/portal/teacher", tags=
 api_router.include_router(notifications_router, prefix="/notifications", tags=["Notification Center"])
 api_router.include_router(certificates_router, prefix="/certificates", tags=["Certificate & Document Management"])
 api_router.include_router(reporting_router, prefix="/reporting", tags=["Reporting & Analytics"])
+api_router.include_router(platform_router, prefix="/platform", tags=["Platform Services"])
 
 
 @api_router.get("/health", tags=["Health"])

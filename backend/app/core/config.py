@@ -12,6 +12,12 @@ class Settings(BaseSettings):
     JWT_SECRET_KEY: str = "change-me-in-production"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 15
     REFRESH_TOKEN_EXPIRE_DAYS: int = 7
+    ENVIRONMENT: str = "development"
+    CORS_ORIGINS: str = "http://localhost:5173"
+    RATE_LIMIT_PER_MINUTE: int = 120
+    BACKUP_ENCRYPTION_KEY: str = "change-me-backup-key"
+    GOOGLE_DRIVE_BACKUP_FOLDER_ID: str | None = None
+    SENTRY_DSN: str | None = None
 
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
 

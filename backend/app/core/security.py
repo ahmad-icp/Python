@@ -1,5 +1,8 @@
+from datetime import UTC, datetime, timedelta
 from enum import StrEnum
 
+from jose import jwt
+from passlib.context import CryptContext
 from fastapi import Depends, Header, HTTPException, status
 
 
@@ -78,6 +81,10 @@ class Permission(StrEnum):
     REPORTING_READ = "reporting:read"
     REPORTING_EXPORT = "reporting:export"
     REPORTING_MANAGE = "reporting:manage"
+    PLATFORM_AUDIT_READ = "platform:audit:read"
+    PLATFORM_BACKUP_MANAGE = "platform:backup:manage"
+    PLATFORM_SETTINGS_READ = "platform:settings:read"
+    PLATFORM_SETTINGS_WRITE = "platform:settings:write"
 
 
 ROLE_PERMISSIONS: dict[str, set[Permission]] = {
@@ -181,6 +188,43 @@ ROLE_PERMISSIONS: dict[str, set[Permission]] = {
         Permission.REPORTING_READ,
     },
 }
+
+
+password_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+ALGORITHM = "HS256"
+
+
+def hash_password(password: str) -> str:
+    return password_context.hash(password)
+
+
+def verify_password(plain_password: str, password_hash: str) -> bool:
+    return password_context.verify(plain_password, password_hash)
+
+
+def create_token(subject: str, secret_key: str, expires_delta: timedelta, token_type: str, extra_claims: dict[str, object] | None = None) -> str:
+    now = datetime.now(UTC)
+    claims: dict[str, object] = {
+        "sub": subject,
+        "type": token_type,
+        "iat": int(now.timestamp()),
+        "exp": int((now + expires_delta).timestamp()),
+    }
+    if extra_claims:
+        claims.update(extra_claims)
+    return jwt.encode(claims, secret_key, algorithm=ALGORITHM)
+
+
+def decode_token(token: str, secret_key: str) -> dict[str, object]:
+    return jwt.decode(token, secret_key, algorithms=[ALGORITHM])
+
+# Human-readable role aliases used by deployment documentation and identity providers.
+ROLE_PERMISSIONS.update({
+    "super_admin": ROLE_PERMISSIONS["platform_super_admin"],
+    "college_admin": ROLE_PERMISSIONS["administrator"],
+    "college_adminstrator": ROLE_PERMISSIONS["administrator"],
+    "accountant": {Permission.FEE_READ, Permission.FEE_WRITE, Permission.FEE_COLLECT, Permission.FEE_REFUND, Permission.FEE_MANAGE, Permission.STUDENT_READ, Permission.NOTIFICATION_READ, Permission.REPORTING_READ, Permission.REPORTING_EXPORT},
+})
 
 
 class CurrentUser:

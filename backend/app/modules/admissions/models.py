@@ -82,7 +82,7 @@ class AdmissionApplication(Base):
     documents: Mapped[list["AdmissionDocument"]] = relationship(
         back_populates="application", cascade="all, delete-orphan", lazy="selectin"
     )
-    merit_entries: Mapped[list["MeritListEntry"]] = relationship(back_populates="application", lazy="selectin")
+    merit_entries: Mapped[list["AdmissionMeritListEntry"]] = relationship(back_populates="application", lazy="selectin")
 
 
 class AdmissionDocument(Base):
@@ -101,11 +101,11 @@ class AdmissionDocument(Base):
     application: Mapped[AdmissionApplication] = relationship(back_populates="documents")
 
 
-class MeritList(Base):
-    __tablename__ = "merit_lists"
+class AdmissionMeritList(Base):
+    __tablename__ = "admission_merit_lists"
     __table_args__ = (
-        UniqueConstraint("college_id", "program", "academic_session", "list_number", name="uq_merit_list_program_session_number"),
-        Index("ix_merit_list_college_status", "college_id", "status"),
+        UniqueConstraint("college_id", "program", "academic_session", "list_number", name="uq_admission_merit_list_program_session_number"),
+        Index("ix_admission_merit_list_college_status", "college_id", "status"),
     )
 
     id: Mapped[str] = mapped_column(String(36), primary_key=True, default=new_uuid)
@@ -120,21 +120,21 @@ class MeritList(Base):
     created_by: Mapped[str] = mapped_column(String(64), nullable=False)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=False)
 
-    entries: Mapped[list["MeritListEntry"]] = relationship(
-        back_populates="merit_list", cascade="all, delete-orphan", lazy="selectin", order_by="MeritListEntry.position"
+    entries: Mapped[list["AdmissionMeritListEntry"]] = relationship(
+        back_populates="merit_list", cascade="all, delete-orphan", lazy="selectin", order_by="AdmissionMeritListEntry.position"
     )
 
 
-class MeritListEntry(Base):
-    __tablename__ = "merit_list_entries"
-    __table_args__ = (UniqueConstraint("merit_list_id", "application_id", name="uq_merit_list_application"),)
+class AdmissionMeritListEntry(Base):
+    __tablename__ = "admission_merit_list_entries"
+    __table_args__ = (UniqueConstraint("merit_list_id", "application_id", name="uq_admission_merit_list_application"),)
 
     id: Mapped[str] = mapped_column(String(36), primary_key=True, default=new_uuid)
-    merit_list_id: Mapped[str] = mapped_column(ForeignKey("merit_lists.id", ondelete="CASCADE"), nullable=False, index=True)
+    merit_list_id: Mapped[str] = mapped_column(ForeignKey("admission_merit_lists.id", ondelete="CASCADE"), nullable=False, index=True)
     application_id: Mapped[str] = mapped_column(ForeignKey("admission_applications.id", ondelete="CASCADE"), nullable=False, index=True)
     position: Mapped[int] = mapped_column(nullable=False)
     score: Mapped[float] = mapped_column(Numeric(8, 4), nullable=False)
     offer_expires_on: Mapped[date | None] = mapped_column(Date)
 
-    merit_list: Mapped[MeritList] = relationship(back_populates="entries")
+    merit_list: Mapped[AdmissionMeritList] = relationship(back_populates="entries")
     application: Mapped[AdmissionApplication] = relationship(back_populates="merit_entries")
