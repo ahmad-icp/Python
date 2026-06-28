@@ -4,6 +4,8 @@ import { AttendancePage } from '../features/attendance/AttendancePage';
 import { ExaminationPage } from '../features/examinations/ExaminationPage';
 import { MarksEntryPage } from '../features/marks-entry/MarksEntryPage';
 import { ResultProcessingPage } from '../features/results/ResultProcessingPage';
+import { GradeCalculationPage } from '../features/grade-calculations/GradeCalculationPage';
+import { ReportCardsPage } from '../features/report-cards/ReportCardsPage';
 import { StudentPage } from '../features/students/StudentPage';
 import { TimetablePage } from '../features/timetable/TimetablePage';
 
@@ -19,6 +21,8 @@ export function App() {
       <ExaminationPage />
       <MarksEntryPage />
       <ResultProcessingPage />
+      <GradeCalculationPage />
+      <ReportCardsPage />
       <StudentPage />
     </main>
   );

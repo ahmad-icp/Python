@@ -139,3 +139,15 @@ Marks Entry consumes locked/published examinations and assessment components to 
 ## Result Processing
 
 Result Processing consumes locked Marks Entry data and persists normalized `student_results` and `subject_results` records. Grading policies are versioned per tenant, while audit records capture calculation, recalculation, publishing, and locking transitions. Results remain draft until explicitly published and can only be locked after publication.
+
+## GPA & Percentage Calculation
+
+The GPA & Percentage Calculation layer sits after Result Processing. It uses normalized `student_results` and `subject_results` to produce grading-system-specific output. Percentage systems expose mandatory percentage and grade information, while GPA systems additionally calculate credit-hour-weighted GPA/CGPA and academic standing.
+
+## Report Cards DMC
+
+Report Cards consume Result Processing and GPA/Percentage Calculation outputs. They persist immutable verification codes, printable HTML, branding data, and issue status to support audit-friendly DMC generation and QR verification.
+
+## Gazette Generation
+
+Gazettes aggregate normalized results and grade calculations into scoped ranked outputs for class, section, program, or overall publication.

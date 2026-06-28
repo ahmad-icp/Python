@@ -42,6 +42,14 @@ class Permission(StrEnum):
     RESULT_CONFIGURE = "result:configure"
     RESULT_PUBLISH = "result:publish"
     RESULT_LOCK = "result:lock"
+    GRADE_READ = "grade:read"
+    GRADE_CONFIGURE = "grade:configure"
+    GRADE_CALCULATE = "grade:calculate"
+    REPORT_CARD_READ = "report_card:read"
+    REPORT_CARD_WRITE = "report_card:write"
+    REPORT_CARD_ISSUE = "report_card:issue"
+    GAZETTE_READ = "gazette:read"
+    GAZETTE_WRITE = "gazette:write"
 
 
 ROLE_PERMISSIONS: dict[str, set[Permission]] = {
@@ -62,11 +70,11 @@ ROLE_PERMISSIONS: dict[str, set[Permission]] = {
         Permission.TIMETABLE_READ,
         Permission.ATTENDANCE_READ,
         Permission.EXAM_READ,
-        Permission.MARKS_READ, Permission.RESULT_READ,
+        Permission.MARKS_READ, Permission.RESULT_READ, Permission.GRADE_READ, Permission.REPORT_CARD_READ, Permission.GAZETTE_READ,
     },
-    "teacher": {Permission.STUDENT_READ, Permission.ACADEMIC_READ, Permission.TIMETABLE_READ, Permission.ATTENDANCE_READ, Permission.ATTENDANCE_MARK, Permission.EXAM_READ, Permission.MARKS_READ, Permission.MARKS_WRITE, Permission.MARKS_SUBMIT, Permission.RESULT_READ},
-    "parent": {Permission.STUDENT_READ, Permission.ACADEMIC_READ, Permission.TIMETABLE_READ, Permission.ATTENDANCE_READ, Permission.EXAM_READ, Permission.MARKS_READ, Permission.RESULT_READ},
-    "student": {Permission.STUDENT_READ, Permission.ACADEMIC_READ, Permission.TIMETABLE_READ, Permission.ATTENDANCE_READ, Permission.EXAM_READ, Permission.MARKS_READ, Permission.RESULT_READ},
+    "teacher": {Permission.STUDENT_READ, Permission.ACADEMIC_READ, Permission.TIMETABLE_READ, Permission.ATTENDANCE_READ, Permission.ATTENDANCE_MARK, Permission.EXAM_READ, Permission.MARKS_READ, Permission.MARKS_WRITE, Permission.MARKS_SUBMIT, Permission.RESULT_READ, Permission.GRADE_READ, Permission.REPORT_CARD_READ, Permission.GAZETTE_READ},
+    "parent": {Permission.STUDENT_READ, Permission.ACADEMIC_READ, Permission.TIMETABLE_READ, Permission.ATTENDANCE_READ, Permission.EXAM_READ, Permission.MARKS_READ, Permission.RESULT_READ, Permission.GRADE_READ, Permission.REPORT_CARD_READ, Permission.GAZETTE_READ},
+    "student": {Permission.STUDENT_READ, Permission.ACADEMIC_READ, Permission.TIMETABLE_READ, Permission.ATTENDANCE_READ, Permission.EXAM_READ, Permission.MARKS_READ, Permission.RESULT_READ, Permission.GRADE_READ, Permission.REPORT_CARD_READ, Permission.GAZETTE_READ},
 }
 
 

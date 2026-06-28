@@ -58,3 +58,17 @@ Core tables include `classrooms`, `time_slots`, `working_days`, `calendar_events
 - `student_results`: one calculated overall result per tenant, exam, and student.
 - `subject_results`: normalized subject-level outcomes linked to student results.
 - `result_audit_trails`: append-only audit log for calculation and state transitions.
+
+## GPA & Percentage Calculation Tables
+
+- `grade_systems`: tenant-scoped GPA or percentage grading policies for institution, program, class, or section scopes.
+- `grade_mappings`: grade-to-percentage and optional grade-point mappings for each grading system.
+- `student_grade_calculations`: calculated percentage, grade, GPA/CGPA where applicable, credit-hour totals, standing, and promotion eligibility per result.
+
+## Report Cards DMC Tables
+
+- `report_cards`: one DMC per result with verification code, printable HTML, optional GPA calculation link, branding metadata, and issue lifecycle fields.
+
+## Gazette Tables
+
+- `gazettes`: tenant-scoped generated gazette snapshots with summary JSON and ranked row JSON.
