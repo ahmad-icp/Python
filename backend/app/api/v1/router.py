@@ -5,6 +5,7 @@ from app.modules.attendance.router import router as attendance_router
 from app.modules.examination.router import router as examination_router
 from app.modules.fees.router import router as fees_router
 from app.modules.marks_entry.router import router as marks_entry_router
+from app.modules.notifications.router import router as notifications_router
 from app.modules.results.router import router as results_router
 from app.modules.results.gpa_router import router as gpa_router
 from app.modules.results.report_card_router import router as report_card_router
@@ -40,6 +41,7 @@ api_router.include_router(fees_router, prefix="/fees", tags=["Enterprise Finance
 api_router.include_router(student_portal_router, prefix="/portal/student", tags=["Student Portal"])
 api_router.include_router(parent_portal_router, prefix="/portal/parent", tags=["Parent Portal"])
 api_router.include_router(teacher_portal_router, prefix="/portal/teacher", tags=["Teacher Portal"])
+api_router.include_router(notifications_router, prefix="/notifications", tags=["Notification Center"])
 
 
 @api_router.get("/health", tags=["Health"])
