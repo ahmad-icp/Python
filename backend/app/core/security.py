@@ -75,6 +75,9 @@ class Permission(StrEnum):
     DOCUMENT_READ = "document:read"
     DOCUMENT_WRITE = "document:write"
     DOCUMENT_APPROVE = "document:approve"
+    REPORTING_READ = "reporting:read"
+    REPORTING_EXPORT = "reporting:export"
+    REPORTING_MANAGE = "reporting:manage"
 
 
 ROLE_PERMISSIONS: dict[str, set[Permission]] = {
@@ -109,6 +112,8 @@ ROLE_PERMISSIONS: dict[str, set[Permission]] = {
         Permission.DOCUMENT_WRITE,
         Permission.NOTIFICATION_READ,
         Permission.NOTIFICATION_SEND,
+        Permission.REPORTING_READ,
+        Permission.REPORTING_EXPORT,
     },
     "teacher": {
         Permission.STUDENT_READ,
@@ -132,6 +137,8 @@ ROLE_PERMISSIONS: dict[str, set[Permission]] = {
         Permission.TEACHER_PORTAL_READ,
         Permission.NOTIFICATION_READ,
         Permission.NOTIFICATION_SEND,
+        Permission.REPORTING_READ,
+        Permission.REPORTING_EXPORT,
     },
     "parent": {
         Permission.STUDENT_READ,
@@ -151,6 +158,7 @@ ROLE_PERMISSIONS: dict[str, set[Permission]] = {
         Permission.DOCUMENT_READ,
         Permission.PARENT_PORTAL_READ,
         Permission.NOTIFICATION_READ,
+        Permission.REPORTING_READ,
     },
     "student": {
         Permission.STUDENT_READ,
@@ -170,6 +178,7 @@ ROLE_PERMISSIONS: dict[str, set[Permission]] = {
         Permission.DOCUMENT_READ,
         Permission.STUDENT_PORTAL_READ,
         Permission.NOTIFICATION_READ,
+        Permission.REPORTING_READ,
     },
 }
 

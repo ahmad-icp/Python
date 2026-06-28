@@ -24,3 +24,4 @@ The backend exposes a versioned REST API under `/api/v1`. OpenAPI documentation 
 - [User Portals](PORTALS.md)
 - [Notification Center](NOTIFICATIONS.md)
 - [Certificate & Document Management](CERTIFICATES_DOCUMENTS.md)
+- [Reporting & Analytics](REPORTING_ANALYTICS.md)

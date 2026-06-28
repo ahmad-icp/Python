@@ -12,6 +12,7 @@ import { FinancePage } from '../features/fees/FinancePage';
 import { PortalsPage } from '../features/portals/PortalsPage';
 import { NotificationsPage } from '../features/notifications/NotificationsPage';
 import { CertificatesPage } from '../features/certificates/CertificatesPage';
+import { ReportingPage } from '../features/reporting/ReportingPage';
 import { StudentPage } from '../features/students/StudentPage';
 import { TimetablePage } from '../features/timetable/TimetablePage';
 
@@ -36,6 +37,7 @@ export function App() {
       <PortalsPage />
       <NotificationsPage />
       <CertificatesPage />
+      <ReportingPage />
     </main>
   );
 }
