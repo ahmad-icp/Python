@@ -3,6 +3,7 @@ from fastapi import APIRouter
 from app.modules.academic.router import router as academic_router
 from app.modules.attendance.router import router as attendance_router
 from app.modules.examination.router import router as examination_router
+from app.modules.fees.router import router as fees_router
 from app.modules.marks_entry.router import router as marks_entry_router
 from app.modules.results.router import router as results_router
 from app.modules.results.gpa_router import router as gpa_router
@@ -32,6 +33,7 @@ api_router.include_router(report_card_router, prefix="/report-cards", tags=["Rep
 api_router.include_router(gazette_router, prefix="/gazettes", tags=["Gazette Generation"])
 api_router.include_router(merit_router, prefix="/merit-lists", tags=["Merit Lists"])
 api_router.include_router(transcript_router, prefix="/transcripts", tags=["Transcript Generation"])
+api_router.include_router(fees_router, prefix="/fees", tags=["Enterprise Finance"])
 
 
 @api_router.get("/health", tags=["Health"])
