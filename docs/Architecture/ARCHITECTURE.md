@@ -135,3 +135,7 @@ Examination Management extends the academic and timetable bounded contexts with 
 ## Marks Entry
 
 Marks Entry consumes locked/published examinations and assessment components to capture tenant-scoped student marks in draft batches. It supports bulk entry, imports, submission, locking, administrator unlock with reason capture, moderation/rechecking notes, and audit trails for every marks change.
+
+## Result Processing
+
+Result Processing consumes locked Marks Entry data and persists normalized `student_results` and `subject_results` records. Grading policies are versioned per tenant, while audit records capture calculation, recalculation, publishing, and locking transitions. Results remain draft until explicitly published and can only be locked after publication.

@@ -51,3 +51,10 @@ Core tables include `classrooms`, `time_slots`, `working_days`, `calendar_events
 - `marks_entry_batches`: tenant-scoped marks entry worklists by exam, section, subject, and assessment component.
 - `marks_entries`: student marks with moderation/rechecking fields and uniqueness across exam, subject, component, and student.
 - `marks_audit_trails`: immutable audit events for entry updates, imports, submission, locking, and unlock approvals.
+
+## Result Processing Tables
+
+- `grading_policies`: tenant-scoped grading, passing, grace, and promotion policy versions.
+- `student_results`: one calculated overall result per tenant, exam, and student.
+- `subject_results`: normalized subject-level outcomes linked to student results.
+- `result_audit_trails`: append-only audit log for calculation and state transitions.

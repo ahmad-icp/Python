@@ -3,6 +3,7 @@ import { AdmissionsPage } from '../features/admissions/AdmissionsPage';
 import { AttendancePage } from '../features/attendance/AttendancePage';
 import { ExaminationPage } from '../features/examinations/ExaminationPage';
 import { MarksEntryPage } from '../features/marks-entry/MarksEntryPage';
+import { ResultProcessingPage } from '../features/results/ResultProcessingPage';
 import { StudentPage } from '../features/students/StudentPage';
 import { TimetablePage } from '../features/timetable/TimetablePage';
 
@@ -17,6 +18,7 @@ export function App() {
       <AttendancePage />
       <ExaminationPage />
       <MarksEntryPage />
+      <ResultProcessingPage />
       <StudentPage />
     </main>
   );
