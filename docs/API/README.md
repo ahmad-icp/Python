@@ -18,3 +18,5 @@ The backend exposes a versioned REST API under `/api/v1`. OpenAPI documentation 
 - [GPA & Percentage Calculation](GPA_PERCENTAGE_CALCULATION.md)
 - [Report Cards DMC](REPORT_CARDS_DMC.md)
 - [Gazette Generation](GAZETTE_GENERATION.md)
+- [Merit Lists](MERIT_LISTS.md)
+- [Transcript Generation](TRANSCRIPT_GENERATION.md)

@@ -72,3 +72,13 @@ Core tables include `classrooms`, `time_slots`, `working_days`, `calendar_events
 ## Gazette Tables
 
 - `gazettes`: tenant-scoped generated gazette snapshots with summary JSON and ranked row JSON.
+
+## Merit List Tables
+
+- `merit_lists`: scoped merit list header with ranking basis, publication status, tie-breakers, and analytics.
+- `merit_list_items`: ranked student entries linked to results and optional grade calculations.
+- `merit_certificates`: printable merit certificates with tenant-scoped verification codes.
+
+## Transcript Tables
+
+- `transcripts`: generated academic-history snapshots with summary JSON, printable HTML, issue lifecycle, and verification codes.

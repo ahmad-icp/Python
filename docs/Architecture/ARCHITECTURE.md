@@ -151,3 +151,11 @@ Report Cards consume Result Processing and GPA/Percentage Calculation outputs. T
 ## Gazette Generation
 
 Gazettes aggregate normalized results and grade calculations into scoped ranked outputs for class, section, program, or overall publication.
+
+## Merit Lists
+
+Merit Lists consume passed result records and optional GPA calculations to create scope-specific ranked lists with deterministic tie-breakers, analytics snapshots, certificate issuance, and publication states.
+
+## Transcript Generation
+
+Transcript Generation consolidates all student result and grade-calculation history into official, verifiable transcript snapshots with printable/PDF-ready HTML.
