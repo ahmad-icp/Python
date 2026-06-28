@@ -61,6 +61,9 @@ class Permission(StrEnum):
     FEE_COLLECT = "fee:collect"
     FEE_REFUND = "fee:refund"
     FEE_MANAGE = "fee:manage"
+    STUDENT_PORTAL_READ = "student_portal:read"
+    PARENT_PORTAL_READ = "parent_portal:read"
+    TEACHER_PORTAL_READ = "teacher_portal:read"
 
 
 ROLE_PERMISSIONS: dict[str, set[Permission]] = {
@@ -81,11 +84,11 @@ ROLE_PERMISSIONS: dict[str, set[Permission]] = {
         Permission.TIMETABLE_READ,
         Permission.ATTENDANCE_READ,
         Permission.EXAM_READ,
-        Permission.MARKS_READ, Permission.RESULT_READ, Permission.GRADE_READ, Permission.REPORT_CARD_READ, Permission.GAZETTE_READ, Permission.MERIT_READ, Permission.TRANSCRIPT_READ, Permission.FEE_READ,
+        Permission.MARKS_READ, Permission.RESULT_READ, Permission.GRADE_READ, Permission.REPORT_CARD_READ, Permission.GAZETTE_READ, Permission.MERIT_READ, Permission.TRANSCRIPT_READ, Permission.FEE_READ, Permission.STUDENT_PORTAL_READ, Permission.PARENT_PORTAL_READ, Permission.TEACHER_PORTAL_READ,
     },
-    "teacher": {Permission.STUDENT_READ, Permission.ACADEMIC_READ, Permission.TIMETABLE_READ, Permission.ATTENDANCE_READ, Permission.ATTENDANCE_MARK, Permission.EXAM_READ, Permission.MARKS_READ, Permission.MARKS_WRITE, Permission.MARKS_SUBMIT, Permission.RESULT_READ, Permission.GRADE_READ, Permission.REPORT_CARD_READ, Permission.GAZETTE_READ, Permission.MERIT_READ, Permission.TRANSCRIPT_READ, Permission.FEE_READ},
-    "parent": {Permission.STUDENT_READ, Permission.ACADEMIC_READ, Permission.TIMETABLE_READ, Permission.ATTENDANCE_READ, Permission.EXAM_READ, Permission.MARKS_READ, Permission.RESULT_READ, Permission.GRADE_READ, Permission.REPORT_CARD_READ, Permission.GAZETTE_READ, Permission.MERIT_READ, Permission.TRANSCRIPT_READ, Permission.FEE_READ},
-    "student": {Permission.STUDENT_READ, Permission.ACADEMIC_READ, Permission.TIMETABLE_READ, Permission.ATTENDANCE_READ, Permission.EXAM_READ, Permission.MARKS_READ, Permission.RESULT_READ, Permission.GRADE_READ, Permission.REPORT_CARD_READ, Permission.GAZETTE_READ, Permission.MERIT_READ, Permission.TRANSCRIPT_READ, Permission.FEE_READ},
+    "teacher": {Permission.STUDENT_READ, Permission.ACADEMIC_READ, Permission.TIMETABLE_READ, Permission.ATTENDANCE_READ, Permission.ATTENDANCE_MARK, Permission.EXAM_READ, Permission.MARKS_READ, Permission.MARKS_WRITE, Permission.MARKS_SUBMIT, Permission.RESULT_READ, Permission.GRADE_READ, Permission.REPORT_CARD_READ, Permission.GAZETTE_READ, Permission.MERIT_READ, Permission.TRANSCRIPT_READ, Permission.FEE_READ, Permission.STUDENT_PORTAL_READ, Permission.PARENT_PORTAL_READ, Permission.TEACHER_PORTAL_READ},
+    "parent": {Permission.STUDENT_READ, Permission.ACADEMIC_READ, Permission.TIMETABLE_READ, Permission.ATTENDANCE_READ, Permission.EXAM_READ, Permission.MARKS_READ, Permission.RESULT_READ, Permission.GRADE_READ, Permission.REPORT_CARD_READ, Permission.GAZETTE_READ, Permission.MERIT_READ, Permission.TRANSCRIPT_READ, Permission.FEE_READ, Permission.STUDENT_PORTAL_READ, Permission.PARENT_PORTAL_READ, Permission.TEACHER_PORTAL_READ},
+    "student": {Permission.STUDENT_READ, Permission.ACADEMIC_READ, Permission.TIMETABLE_READ, Permission.ATTENDANCE_READ, Permission.EXAM_READ, Permission.MARKS_READ, Permission.RESULT_READ, Permission.GRADE_READ, Permission.REPORT_CARD_READ, Permission.GAZETTE_READ, Permission.MERIT_READ, Permission.TRANSCRIPT_READ, Permission.FEE_READ, Permission.STUDENT_PORTAL_READ, Permission.PARENT_PORTAL_READ, Permission.TEACHER_PORTAL_READ},
 }
 
 

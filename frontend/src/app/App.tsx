@@ -9,6 +9,7 @@ import { ReportCardsPage } from '../features/report-cards/ReportCardsPage';
 import { MeritListsPage } from '../features/merit-lists/MeritListsPage';
 import { TranscriptsPage } from '../features/transcripts/TranscriptsPage';
 import { FinancePage } from '../features/fees/FinancePage';
+import { PortalsPage } from '../features/portals/PortalsPage';
 import { StudentPage } from '../features/students/StudentPage';
 import { TimetablePage } from '../features/timetable/TimetablePage';
 
@@ -30,6 +31,7 @@ export function App() {
       <TranscriptsPage />
       <StudentPage />
       <FinancePage />
+      <PortalsPage />
     </main>
   );
 }

@@ -21,3 +21,4 @@ The backend exposes a versioned REST API under `/api/v1`. OpenAPI documentation 
 - [Merit Lists](MERIT_LISTS.md)
 - [Transcript Generation](TRANSCRIPT_GENERATION.md)
 - [Enterprise Finance](FINANCE.md)
+- [User Portals](PORTALS.md)

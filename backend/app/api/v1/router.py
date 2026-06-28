@@ -15,6 +15,9 @@ from app.modules.admissions.router import router as admissions_router
 from app.modules.authentication.router import router as authentication_router
 from app.modules.settings.router import router as settings_router
 from app.modules.students.router import router as students_router
+from app.modules.student_portal.router import router as student_portal_router
+from app.modules.parent_portal.router import router as parent_portal_router
+from app.modules.teacher_portal.router import router as teacher_portal_router
 from app.modules.timetable.router import router as timetable_router
 
 api_router = APIRouter()
@@ -34,6 +37,9 @@ api_router.include_router(gazette_router, prefix="/gazettes", tags=["Gazette Gen
 api_router.include_router(merit_router, prefix="/merit-lists", tags=["Merit Lists"])
 api_router.include_router(transcript_router, prefix="/transcripts", tags=["Transcript Generation"])
 api_router.include_router(fees_router, prefix="/fees", tags=["Enterprise Finance"])
+api_router.include_router(student_portal_router, prefix="/portal/student", tags=["Student Portal"])
+api_router.include_router(parent_portal_router, prefix="/portal/parent", tags=["Parent Portal"])
+api_router.include_router(teacher_portal_router, prefix="/portal/teacher", tags=["Teacher Portal"])
 
 
 @api_router.get("/health", tags=["Health"])
